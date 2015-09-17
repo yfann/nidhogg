@@ -1,0 +1,9 @@
+{
+	"name":"Nidhogg",
+	"version":"1.0",
+	"content_scripts":[{
+		"js":["main.js"],
+		"matches":[""],
+		"run_at":""
+	}]
+}
