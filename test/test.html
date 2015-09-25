@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"  ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Test page</title>
+	<script src="../libs/jquery.min.js"></script>
+	<script src="../libs/angular.min.js"></script>
+	<script src="dataSource.js"></script>
+	<script src="test.js"></script>
+</head>
+<body ng-controller="appController">
+	<div style="padding:40px">
+	<div style="margin-bottom:20px">{{name}}</div>
+	<div style="width:600px;height:800px;overflow-y:auto">
+		<table >
+			<thead>
+				<tr>
+					<td style="width:50px">Id</td>
+					<td style="width:auto">Name</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="row in dataList">
+					<td>{{row.id}}</td>
+					<td>{{row.name}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+	<div id="result">
+		
+	</div>
+</body>
+</html>
