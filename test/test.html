@@ -7,6 +7,7 @@
 	<script src="../libs/angular.min.js"></script>
 	<script src="dataSource.js"></script>
 	<script src="test.js"></script>
+	<script src="../controls/loadmark/load-mark.js"></script>
 </head>
 <body ng-controller="appController">
 	<div style="padding:40px">
@@ -20,7 +21,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="row in dataList">
+				<tr ng-repeat="row in dataList" load-mark>
 					<td>{{row.id}}</td>
 					<td>{{row.name}}</td>
 				</tr>
