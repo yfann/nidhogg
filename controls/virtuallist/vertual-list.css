@@ -1,0 +1,18 @@
+.vertualListContainer{
+	width:600px;
+	max-height:800px;
+	overflow-y:auto;
+}
+
+.vertualListItem{
+	height:20px;
+	position:absolute;
+}
+
+.vertualListContent{
+    position:relative;
+}
+
+.vertualListContainer table{
+	border-spacing:0px;
+}

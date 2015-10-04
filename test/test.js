@@ -1,8 +1,8 @@
-var app=angular.module('app',['dataService','app.common']).controller('appController',['$scope','bigDataSvc',
-function($scope,bigDataSvc){
+var app=angular.module('app',['app.common']).controller('appController',['$scope',
+function($scope){
 	$scope.name="test lang list";
-	$scope.dataList=bigDataSvc.getLongList();
-	
+
+	$scope.list=testData.getLongList();
 }]);
 
 var commonModule = angular.module('app.common', []);

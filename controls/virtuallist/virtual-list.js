@@ -1,64 +1,53 @@
-angular.module('virtualListApp')
-  .directive('uiVirtualList',
-  [function () {
-    'use strict';
-    return {
-      restrict: 'E',
-      require: "ngModel",
-      templateUrl: "views/directives/ui-virtual-list.html",
-      scope: {
-        uiDataProvider: '=',
-        uiOnSelect: '&'
-      },
-      link: function (scope, elem, attrs, ngModelCtrl) {
-        var rowHeight = 30;
- 
-        scope.height = 200;
-        scope.scrollTop = 0;
-        scope.visibleProvider = [];
-        scope.cellsPerPage = 0;
-        scope.numberOfCells = 0;
-        scope.canvasHeight = {};
- 
-        // Init
-        scope.init = function () {
-          elem[0].addEventListener('scroll', scope.onScroll);
-          scope.cellsPerPage = Math.round(scope.height / rowHeight);
-          scope.numberOfCells = 3 * scope.cellsPerPage;
-          scope.canvasHeight = {
-            height: scope.uiDataProvider.length * rowHeight + 'px'
-          };
- 
-          scope.updateDisplayList();
-        };
- 
-        scope.updateDisplayList = function () {
-          var firstCell = Math.max(Math.floor(scope.scrollTop / rowHeight) - scope.cellsPerPage, 0);
-          var cellsToCreate = Math.min(firstCell + scope.numberOfCells, scope.numberOfCells);
-          scope.visibleProvider = scope.uiDataProvider.slice(firstCell, firstCell + cellsToCreate);
- 
-          for (var i = 0; i < scope.visibleProvider.length; i++) {
-            scope.visibleProvider[i].styles = {
-              'top': ((firstCell + i) * rowHeight) + "px"
-            }
-          }
-        };
- 
-        scope.onScroll = function (evt) {
-          scope.scrollTop = elem.prop('scrollTop');
-          scope.updateDisplayList();
- 
-          scope.$apply();
-        };
- 
-        scope.onClickOption = function (option) {
-          ngModelCtrl.$setViewValue(option);
-          scope.currentOption = option;
-          scope.uiOnSelect({"option": option});
-        };
- 
-        scope.init();
-      }
-    };
-  }
-  ]);
+commonModule.directive('virtualList',['$log',function($log){
+	return{
+		restrict:"E",
+		templateUrl:"/controls/virtuallist/virtual-list.html",
+		scope:{
+			list:'='
+		},
+		link:function(scope,element,attr){
+			scope.rowHeight=20;
+			scope.listHeight=800;
+			scope.scrollTop=0;
+			scope.recordsPerPage=0;
+			scope.countOfVertual=0;
+			scope.canvasHeight={};
+			scope.visibleList=[];
+			
+			scope.init=function(){
+				angular.element(element[0]).find('.vertualListContainer')[0].addEventListener('scroll',scope.onScroll);				
+				scope.recordsPerPage=Math.round(scope.listHeight/scope.rowHeight);
+				scope.countOfVertual=3*scope.recordsPerPage;
+				scope.canvasHeight={
+					height:scope.list.length*scope.rowHeight+'px'
+				};
+				$log.debug('recordsPerPage:'+scope.recordsPerPage);
+				$log.debug('countOfVertual:'+scope.countOfVertual);
+				$log.debug('canvasHeight:'+scope.canvasHeight.height);
+				scope.updateDisplayList();
+			};
+			
+			
+			scope.updateDisplayList=function(){
+		        var firstRecord=Math.max(Math.floor(scope.scrollTop/scope.rowHeight)-scope.recordsPerPage,0);
+				$log.debug('firstRecord:'+firstRecord);
+				scope.visibleList=scope.list.slice(firstRecord,firstRecord+scope.countOfVertual);
+				for(var i=0;i<scope.visibleList.length;i++){
+					scope.visibleList[i].styles={
+						'top':((firstRecord+i)*scope.rowHeight)+'px'
+					};
+				}
+			};
+			
+			
+			scope.onScroll=function(){
+				scope.scrollTop=angular.element(element[0]).find('.vertualListContainer').prop('scrollTop');
+				$log.debug('scrolltop:'+scope.scrollTop);
+				scope.updateDisplayList();
+				scope.$apply();
+			};
+			
+			scope.init();
+		}
+	};
+}]);

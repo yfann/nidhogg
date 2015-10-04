@@ -1,9 +1,6 @@
-var dataService=angular.module('dataService',[]).factory('bigDataSvc',[function(){
-	'use strict';
-	return {
+var testData={
 		getLongList:function(){
-			return [{id:0,name:'test name0'},
-					{id:1,name:'test name1'},
+			return [{id:1,name:'test name1'},
 					{id:2,name:'test name2'},
 					{id:3,name:'test name3'},
 					{id:4,name:'test name4'},
@@ -4006,4 +4003,3 @@ var dataService=angular.module('dataService',[]).factory('bigDataSvc',[function(
 					];
 		}
 	};
-}]);

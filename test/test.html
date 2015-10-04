@@ -3,34 +3,22 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Test page</title>
-	<script src="../libs/jquery.min.js"></script>
-	<script src="../libs/angular.min.js"></script>
+	<link rel="stylesheet" href="/controls/virtuallist/vertual-list.css">
+	<script src="/libs/jquery.min.js"></script>
+	<script src="/libs/angular.min.js"></script>
 	<script src="dataSource.js"></script>
 	<script src="test.js"></script>
-	<script src="../controls/loadmark/load-mark.js"></script>
+	<script src="/controls/loadmark/load-mark.js"></script>
+	<script src="/controls/virtuallist/virtual-list.js"></script>
+
 </head>
 <body ng-controller="appController">
 	<div style="padding:40px">
-	<div style="margin-bottom:20px">{{name}}</div>
-	<div style="width:600px;height:800px;overflow-y:auto">
-		<table >
-			<thead>
-				<tr>
-					<td style="width:50px">Id</td>
-					<td style="width:auto">Name</td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="row in dataList" load-mark>
-					<td>{{row.id}}</td>
-					<td>{{row.name}}</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+	    <div style="margin-bottom:20px">{{name}}</div>
+		<virtual-list list="list"></virtual-list>
 	</div>
 	<div id="result">
-		
+
 	</div>
 </body>
 </html>
