@@ -7,4 +7,4 @@
 >node server.js
 
 + test virtual list: http://localhost:3000/test/vlist-test.html
-+ test react:
++ test react: http://localhost:3000/test/react-test.html
