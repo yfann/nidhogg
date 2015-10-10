@@ -1,7 +1,10 @@
 #Nidhogg
 
-##this project includes some useful tools for normal work.
+####This project is used for testing some new technology.
 
 
-###to generate test data with json formate
+##open app
+>node server.js
 
++ test virtual list: http://localhost:3000/test/vlist-test.html
++ test react:

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>React</title>
+	<script src="/libs/react.js"></script>
+	<script src="/libs/browser.min.js"></script>
+	<script src="react-test.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+     var My=React.createClass({
+        render:function(){
+            return <h1>Hello, {this.props.name}!</h1>;
+        }
+     });
+    
+      React.render(
+        <My name='yfann'/>,
+        document.getElementById('example')
+      );
+    </script>
+</body>
+</html>
