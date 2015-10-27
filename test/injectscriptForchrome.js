@@ -1,0 +1,1 @@
+var sc=document.createElement('script');sc.src='http://libs.baidu.com/jquery/1.9.1/jquery.min.js';document.body.appendChild(sc);

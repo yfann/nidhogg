@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="lib/angular.min.js"></script>
+	<script src="lib/jquery.min.js"></script>
+	<script src="popup.js"></script>
+	<style>
+		.main{
+			width:100px;
+		}
+		input{
+			width:30px;
+		}
+		div{
+			margin:10px;
+		}
+	</style>
+</head>
+<body ng-app="myApp">
+	<div class="main" ng-controller="appController">
+	    <div><input type="text" ng-model="minWidth"/>×<input type="text" ng-model="minHeight"></div>
+    	<div><button ng-click="saveImage()">img save</button></div>
+	</div>
+	<div id="testArea"></div>
+</body>
+</html>
