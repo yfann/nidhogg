@@ -1,0 +1,40 @@
+.btn-primary {
+    color: #ffffff;
+    background-color: #9cd068;
+    border-color: #5c8d2c;
+    background-image: linear-gradient(to bottom, #9cd068 0, #81c341 50%, #7aba3a 50%, #8fc856 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9CD068', endColorstr='#8FC856', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    border-color: #689F32;
+}
+
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 5px 12px;
+    font-size: 13px;
+    line-height: 1.5;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.main{
+    width:100px;
+}
+input{
+    width:30px;
+}
+div{
+    margin:10px;
+}
