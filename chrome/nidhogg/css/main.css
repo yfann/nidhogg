@@ -30,11 +30,16 @@
 }
 
 .main{
-    width:100px;
+    width:110px;
 }
 input{
     width:30px;
 }
 div{
     margin:10px;
+}
+
+.nd-checkbox{
+    margin:0px;
+    width:8px;  
 }
