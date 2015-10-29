@@ -30,11 +30,10 @@
 }*/
 
 .main{
-    width:200px;
+    width:120px;
+    height:40px;
 }
-input{
-    width:30px;
-}
+
 div{
     margin:10px;
 }
@@ -44,8 +43,10 @@ div{
     width:8px;  
 }
 
-.iconContianer{
-    width:15px;
-    display: inline-block;
-    margin: 0px;
+.floatIcon{
+    float:left;
+}
+.mybtn{
+    position:absolute;
+    width:100px;
 }
