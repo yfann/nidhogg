@@ -6,21 +6,24 @@
 	<script src="lib/angular.min.js"></script>
 	<script src="lib/jquery.min.js"></script>
 	<script src="popup.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
 </head>
 <body ng-app="myApp">
-	<div class="main" ng-controller="appController">
+	<div class="main" ng-controller="appController" ng-mouseover="showEdit=true;" ng-mouseout="showEdit=false;">
     	<div class="container">
-			<button class="btn btn-primary" ng-click="saveImage()">
+			<button class="btn btn-primary" ng-click="saveImage()" >
 				<span ng-hide="isEditImgButton">{{imgButtonText}}</span>
-				<input style="width:100px;color:black" ng-hide="!isEditImgButton" type="text" ng-model="imgButtonInput" ng-keyup="$event.keyCode==13&&finishEdit()" ng-change="changeImgButtonInput()"
+				<input id="imgBtnInput" style="width:100px;color:black" ng-hide="!isEditImgButton" type="text" ng-model="imgButtonInput" ng-keyup="$event.keyCode==13&&finishEdit()" ng-change="changeImgButtonInput()"
 				 	   ng-blur="finishEdit()"/>
 			</button>
-			<span ng-click="editImgButton()" class="glyphicon glyphicon-edit"></span>
+			<div class="iconContianer">
+				<span ng-hide="!showEdit" ng-click="editImgButton()" class="glyphicon glyphicon-edit"></span>
+			</div>
+
 		</div>
 		<div id="testArea">
-	
+
 		</div>
 	</div>
 

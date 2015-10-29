@@ -1,6 +1,6 @@
 console.log('popup loaded');
 var app=angular.module('myApp',[]);
-app.controller('appController',function($scope){
+app.controller('appController',function($scope, $timeout){
 	var splitChar='x';
 	
 	var ss=function(key,val){
@@ -12,18 +12,22 @@ app.controller('appController',function($scope){
 	};
 	
 	var saveImage=function(){
-		ss("nidhogg_minWidth",$scope.minWidth);
-		ss("nidhogg_minHeight",$scope.minHeight);
-		console.log($scope.minWidth+' '+$scope.minHeight);
-		chrome.tabs.getSelected(null,function(tab){
-			chrome.tabs.sendMessage(tab.id,{actionType:'saveImage',minWidth:$scope.minWidth,minHeight:$scope.minHeight},function(response){
-				console.log(response.srcs);
-				
-				angular.forEach(response.srcs,function(data,index,array){
-					$scope.download(data);
+		if(!$scope.isEditImgButton)
+		{
+			ss("nidhogg_minWidth",$scope.minWidth);
+			ss("nidhogg_minHeight",$scope.minHeight);
+			console.log($scope.minWidth+' '+$scope.minHeight);
+			chrome.tabs.getSelected(null,function(tab){
+				chrome.tabs.sendMessage(tab.id,{actionType:'saveImage',minWidth:$scope.minWidth,minHeight:$scope.minHeight},function(response){
+					console.log(response.srcs);
+					
+					angular.forEach(response.srcs,function(data,index,array){
+						$scope.download(data);
+					});
 				});
 			});
-		});
+		}
+
 	};
 	
 	var download=function(url){
@@ -43,6 +47,13 @@ app.controller('appController',function($scope){
 	
 	var editImgButton=function(){
 		$scope.isEditImgButton=!$scope.isEditImgButton;
+		if($scope.isEditImgButton)
+		{
+			 $timeout(function(){
+				 $('#imgBtnInput').focus().select();
+			 },10);
+			
+		}
 	};
 	
 	(function init(){
@@ -64,12 +75,14 @@ app.controller('appController',function($scope){
 		$scope.imgButtonText=$scope.minWidth+' × '+$scope.minHeight;
 		$scope.imgButtonInput=$scope.minWidth+splitChar+$scope.minHeight;
 		$scope.isEditImgButton=false;
+		$scope.showEdit=false;
 		
 		$scope.saveImage=saveImage;
 		$scope.download=download;
 		$scope.changeImgButtonInput=changeImgButtonInput;
 		$scope.finishEdit=finishEdit;
 		$scope.editImgButton=editImgButton;
+		
 	})();
 });
 
