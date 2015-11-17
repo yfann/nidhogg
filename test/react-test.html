@@ -4,22 +4,14 @@
 	<meta charset="UTF-8">
 	<title>React</title>
 	<script src="/libs/react.js"></script>
+	<script src="/libs/react-dom.js"></script>
 	<script src="/libs/browser.min.js"></script>
-	<script src="react-test.js"></script>
+	<script src="/libs/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
+	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>-->
+	<script type="text/babel" src="react-test.js"></script>
 </head>
 <body>
     <div id="example"></div>
-    <script type="text/babel">
-     var My=React.createClass({
-        render:function(){
-            return <h1>Hello, {this.props.name}!</h1>;
-        }
-     });
-    
-      React.render(
-        <My name='yfann'/>,
-        document.getElementById('example')
-      );
-    </script>
 </body>
 </html>

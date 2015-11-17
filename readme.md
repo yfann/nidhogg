@@ -8,3 +8,4 @@
 
 + test virtual list: http://localhost:3000/test/vlist-test.html
 + test react: http://localhost:3000/test/react-test.html
++ chrome plugin
